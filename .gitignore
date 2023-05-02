@@ -1,3 +1,7 @@
 venv/
 .idea
+
+# Generated files in testing
 *.c
+*.cpp
+*.cs
