@@ -1,31 +1,15 @@
 # imports
-import sys, getopt
-
-argumentList = sys.argv[1:]
-options = "hen:"
-long_options = ["help", "extension", "name"]
+import argparse
 
 def main():
-    try:
-        arguments, values = getopt.getopt(argumentList, options, long_options)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-e', '--extension', type=str, required=True, help="Available extensions: C, C++", metavar="[c, cpp]")
+    parser.add_argument('-o', '--output', type=str, required=False, help="Name of the file you want.", metavar="[template.c/template.cpp]")
+    args = parser.parse_args()
 
-        for currentArgument, currentValue in arguments:
-            if currentArgument in ("-h", "--help", " "):
-                print("Example usage:")
-                print("python3 main.py [-e EXTENSION or -extension EXTENSION] [-n OUTPUT_FILE]")
+    
 
-            elif currentArgument in ("-e", "--extension"):
-                print("File extension asked is: ", sys.argv[0])
-
-            elif currentArgument in ("-n", "--name"):
-                print (("File name is: % s") % (currentValue))
-
-    except getopt.error as err:
-        print(str(err))
-
-
-
-
+   
 
 if __name__ == '__main__':
     main()
