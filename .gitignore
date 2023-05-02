@@ -1,5 +1,6 @@
 venv/
 .idea
+features.md
 
 # Generated files in testing
 *.c

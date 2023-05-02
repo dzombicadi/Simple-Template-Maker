@@ -41,8 +41,6 @@ def import_args():
     parser.add_argument('-o', '--output', type=str, required=False, help="Name of the file you want.", metavar="[template.c/template.cpp/template.cs]")
     arguments = parser.parse_args()
 
-    print(arguments)
-
     which_ext(arguments.extension, arguments.output)
 
 
@@ -64,7 +62,6 @@ def which_ext(extension, output):
         
         
 def make_file(tmp_name, ext):
-
     file = open("{}.{}".format(tmp_name, ext), "a+")
 
     if(ext == c_ext):
@@ -75,8 +72,6 @@ def make_file(tmp_name, ext):
         file.writelines(cs_write)
 
     file.close()
-
-
 
 
 if __name__ == '__main__':
