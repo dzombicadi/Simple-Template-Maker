@@ -1,7 +1,7 @@
 venv/
 .idea
 features.md
-*.md
+
 
 # Generated files in testing
 *.c
