@@ -4,6 +4,7 @@ import argparse
 c_ext = "c"
 cpp_ext = "cpp"
 cs_ext = "cs"
+java_ext = "java"
 
 c_write = '''#include <stdio.h>
 
@@ -32,6 +33,12 @@ namespace HelloWorld
     }
   }
 }'''
+java_write = '''public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+'''
 
 
 
@@ -56,8 +63,10 @@ def which_ext(extension, output):
         make_file(tmp_name, cpp_ext)
     elif(extension == cs_ext):
         make_file(tmp_name, cs_ext)
+    elif(extension == java_ext):
+        make_file(tmp_name, java_ext)
     else:
-        print("Available extensions are: 'c', 'cpp', 'cs'")
+        print("Available extensions are: 'c', 'cpp', 'cs', 'java")
 
         
         
@@ -70,6 +79,8 @@ def make_file(tmp_name, ext):
         file.writelines(cpp_write)
     elif(ext == cs_ext):
         file.writelines(cs_write)
+    elif(ext == java_ext):
+        file.writelines(java_write)
 
     file.close()
 
